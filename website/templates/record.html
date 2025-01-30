@@ -4,14 +4,33 @@
 
 <h1>Customer Record : </h1>
 
-    {{ customer_record.first_name }} {{ customer_record.last_name }} <br/>
-    {{ customer_record.email }} <br/>
-    {{ customer_record.addresss }} <br/>
-    {{ customer_record.city }} <br/>
-    {{ customer_record.state }} <br/>
-    {{ customer_record.zipcode }} <br/>
-    {{ customer_record.created_at }} <br/>
-    {{ customer_record.id }} <br/>
+<div class="card">
+    <div class="card-header">
+        {{ customer_record.first_name }}
+        {{ customer_record.last_name }}
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Email:</strong> {{ customer_record.email }} </br>
+        <strong>Dirección:</strong> {{ customer_record.addresss }}  </br>
+        <strong>Ciudad:</strong> {{ customer_record.city }}  </br>
+        <strong>Estado:</strong> {{ customer_record.state }}  </br>
+        <strong>Código Postal:</strong> {{ customer_record.zipcode }}  </br>
+        <strong>Fecha de Creación:</strong> {{ customer_record.created_at }}  </br>
+        <strong>ID:</strong> {{ customer_record.id }} </br>
+      </p>
+        
+        
+      </h5>
+    </div>
+  </div>
+  <br> <br>
+
+  <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+  <a href="{% url 'home' %}" class="btn btn-danger">Delete</a>
+
+
+    
 
 
 {% endblock %}
