@@ -66,3 +66,14 @@ def customer_record(request, pk):
     else:
         messages.success(request, "Debes iniciar sesión para ver esta página") 
         return redirect('home')
+
+
+def delete_record(request, pk):
+    if request.user.is_authenticated:
+        delete_it = Record.objects.get(id=pk)
+        delete_it.delete()
+        messages.success(request, "El registro se ha eliminado correctamente")
+        return redirect('home')
+    else:
+        messages.success(request, "Debes iniciar sesión para eliminar un registro")
+        return redirect('home')
