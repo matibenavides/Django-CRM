@@ -54,3 +54,15 @@ def register_user(request):
         return render(request, 'register.html', {'form': form}) 
         
     return render(request, 'register.html', {'form': form}) 
+
+
+# Pasamos llave primaria del registro a mostrar. Esté siendo señalado de urls.py
+# por path('record/<int:pk',...)
+def customer_record(request, pk):
+    if request.user.is_authenticated:
+        # Buscamos el registro que coincide con la llave primaria
+        customer_record = Record.objects.get(id=pk)
+        return render(request, 'record.html', {'customer_record': customer_record})
+    else:
+        messages.success(request, "Debes iniciar sesión para ver esta página") 
+        return redirect('home')
